@@ -1,3 +1,11 @@
+# The concepts that I've learned
+
+- 1. Basic html and css (add a loader, flexbox, add global css variables)
+- 2. To use redux, redux-saga for fetching data from api
+- 3. `Debounce` concept to make sure that the time-consuming function is not called so often
+- 4. Products sorting
+- 5. Unit test for at least one component
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
