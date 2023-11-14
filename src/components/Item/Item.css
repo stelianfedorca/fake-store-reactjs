@@ -1,0 +1,25 @@
+
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 15px;
+  gap: 1%;
+
+  background: var(--white);
+}
+
+.button-details {
+  display: flex;
+  text-decoration: none;
+  /* height: 30px; */
+}
+
+.title {
+  display: flex;
+  flex: 1; /* make the item  */
+}
