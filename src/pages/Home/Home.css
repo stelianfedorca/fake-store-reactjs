@@ -39,7 +39,7 @@ main {
 .input {
   width: 80%;
   padding: 0.5%;
-
+  border-radius: 10px;
   max-width: 400px;
   box-sizing: border-box; /* include padding and border in the input's total width*/
 }

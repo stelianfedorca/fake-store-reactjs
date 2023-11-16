@@ -1,10 +1,16 @@
+# Redux things learned so far:
+
+- if let's say you use the search state in multiple places, consider making a separate reducer for it
+
+## sort method checks if the number is positive, then it means that a is greater than b => b comes before a ([4,2] => a: 4, b: 2 => [2, 4])
+
 # The concepts that I've learned
 
-- 1. Basic html and css (add a loader, flexbox, add global css variables)
-- 2. To use redux, redux-saga for fetching data from api
-- 3. `Debounce` concept to make sure that the time-consuming function is not called so often
-- 4. Products sorting
-- 5. Unit test for at least one component
+- Basic html and css (add a loader, flexbox, add global css variables)
+- To use redux, redux-saga for fetching data from api
+- `Debounce` concept to make sure that the time-consuming function is not called so often
+- Products sorting
+- Unit test for at least one component
 
 # Getting Started with Create React App
 

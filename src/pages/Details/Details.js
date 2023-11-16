@@ -12,8 +12,7 @@ export function Details() {
       const response = await axios.get(
         `https://fakestoreapi.com/products/${id}`
       );
-      console.log(response.data);
-      setProduct((product) => ({ ...product, ...response.data }));
+      setProduct(product => ({ ...product, ...response.data }));
       setIsLoading(false);
     }
 
