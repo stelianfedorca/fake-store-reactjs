@@ -3,6 +3,7 @@ import {
   FETCH_PRODUCTS_FAIL,
   FETCH_PRODUCTS_SUCCESS,
   SET_SEARCH_FILTER,
+  SET_SELECTED_PRODUCT,
 } from '../../constants';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   isLoading: false,
   searchFilter: '',
   sortingFilter: {},
+  selectedProduct: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -29,6 +31,13 @@ const rootReducer = (state = initialState, action) => {
     }
     case SET_SEARCH_FILTER: {
       return { ...state, searchFilter: action.payload };
+    }
+    case SET_SELECTED_PRODUCT: {
+      const id = action.payload;
+      return {
+        ...state,
+        selectedProduct: state.products.find(product => product.id === id),
+      };
     }
     default:
       return state;

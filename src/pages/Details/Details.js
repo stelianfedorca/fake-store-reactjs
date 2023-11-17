@@ -1,23 +1,11 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 export function Details() {
   const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
-  const [product, setProduct] = useState(null);
-
-  useEffect(() => {
-    async function getProduct() {
-      const response = await axios.get(
-        `https://fakestoreapi.com/products/${id}`
-      );
-      setProduct(product => ({ ...product, ...response.data }));
-      setIsLoading(false);
-    }
-
-    getProduct();
-  }, [id]);
+  const [isLoading, setIsLoading] = useState(false);
+  const product = useSelector(state => state.productsReducer.selectedProduct);
 
   return (
     <div>

@@ -27,14 +27,8 @@ export function Login() {
 
   return (
     <div>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          <p>Login</p>
-          <button onClick={login}>Login</button>
-        </>
-      )}
+      <p>Login</p>
+      <button onClick={login}>Login</button>
     </div>
   );
 }

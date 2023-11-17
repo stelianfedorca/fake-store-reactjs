@@ -22,6 +22,7 @@ header {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+  gap: 1%;
 }
 
 main {
@@ -41,7 +42,13 @@ main {
   padding: 0.5%;
   border-radius: 10px;
   max-width: 400px;
-  box-sizing: border-box; /* include padding and border in the input's total width*/
+  box-sizing: border-box; /* include padding and border in the input's total width and height*/
+}
+
+.dropdown-sort-price {
+  box-sizing: border-box;
+  padding: 0.5%;
+  border-radius: 5px;
 }
 
 ul {

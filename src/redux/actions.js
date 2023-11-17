@@ -3,6 +3,7 @@ import {
   FETCH_PRODUCTS_FAIL,
   FETCH_PRODUCTS_SUCCESS,
   SET_SEARCH_FILTER,
+  SET_SELECTED_PRODUCT,
 } from '../constants';
 
 export function fetchProducts() {
@@ -19,4 +20,8 @@ export function fetchProductsFail() {
 
 export function setSearchFilter(search) {
   return { type: SET_SEARCH_FILTER, payload: search };
+}
+
+export function setSelectedProduct(id) {
+  return { type: SET_SELECTED_PRODUCT, payload: id };
 }

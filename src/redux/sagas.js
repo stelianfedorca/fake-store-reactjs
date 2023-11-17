@@ -6,7 +6,6 @@ import { FETCH_PRODUCTS } from '../constants';
 import { fetchProductsFail, fetchProductsSuccess } from './actions';
 
 async function fetchProductsApiCall() {
-  console.log('fetchproductsapicall');
   const response = await axios.get('https://fakestoreapi.com/products');
   return response.data;
 }

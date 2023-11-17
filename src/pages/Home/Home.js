@@ -1,14 +1,15 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Item } from '../../components/Item';
 import { FETCH_PRODUCTS } from '../../constants';
-import { setSearchFilter } from '../../redux/actions';
+import { setSearchFilter, setSelectedProduct } from '../../redux/actions';
 
 import './Home.css';
 
 export function Home() {
+  const [selectedSortOption, setSelectedSortOption] = useState(0);
+
   // redux-saga hook for connecting the component with the store
   // it provides a way for component to subscribe to redux store and read data from it
   // the component re-renders every time the state changes
@@ -27,7 +28,7 @@ export function Home() {
 
   // custom debounce function
   function debounce(callback, wait) {
-    let timeout;
+    let timeoutId;
 
     // this function will be the debounced version of the original one
     // it takes any number of arguments using rest paramter syntax
@@ -39,9 +40,9 @@ export function Home() {
 
       // clear any existing timeout to prevent the original function from being called
       // if the debounced function is invoked again within the specified delay.
-      clearTimeout(timeout);
+      clearTimeout(timeoutId);
 
-      timeout = setTimeout(() => {
+      timeoutId = setTimeout(() => {
         callback.apply(context, args);
       }, wait);
     };
@@ -56,6 +57,15 @@ export function Home() {
     return product.title.toLowerCase().includes(searchFilter.toLowerCase());
   }
 
+  function handleOptionChange(event) {
+    const option = event.target.value;
+    setSelectedSortOption(option);
+  }
+
+  function handleShowDetails(id) {
+    dispatch(setSelectedProduct(id));
+  }
+
   return (
     <div className="container">
       <header>
@@ -64,6 +74,20 @@ export function Home() {
           onChange={debouncedSearch}
           className="input"
         />
+
+        <select
+          value={selectedSortOption}
+          onChange={handleOptionChange}
+          name="price"
+          id="price"
+          className="dropdown-sort-price"
+        >
+          <option value={1} va>
+            Ascending
+          </option>
+          <option value={2}>Descending</option>
+          <option value={0}>Default</option>
+        </select>
       </header>
 
       <main className="list">
@@ -73,7 +97,7 @@ export function Home() {
           <ul>
             {products.filter(filterProduct).map(data => (
               <li key={data.id + Math.random()}>
-                <Item id={data.id} title={data.title} />
+                <Item {...data} onShowDetails={handleShowDetails} />
               </li>
             ))}
           </ul>

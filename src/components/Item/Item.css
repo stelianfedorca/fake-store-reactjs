@@ -19,7 +19,24 @@
   /* height: 30px; */
 }
 
+.section-left {
+  display: flex;
+  flex-direction: column;
+  flex:1;
+
+  padding: 5px;
+}
+
 .title {
   display: flex;
-  flex: 1; /* make the item  */
+  flex: 1;
+  font-weight: 500;
+}
+
+.price {
+  color: var(--dollar-green);
+  font-weight: 500;
+}
+
+.description {
 }
